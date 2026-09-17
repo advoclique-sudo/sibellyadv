@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17873334808"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17873334808');
+</script>
+
 <title>Lingrens Advocacia — Direito Trabalhista</title>
 <meta name="description" content="Está enfrentando problemas no trabalho? Demissão sem receber corretamente, horas extras não pagas, FGTS irregular, falta de registro ou assédio podem exigir análise jurídica. Fale pelo WhatsApp.">
 <meta name="theme-color" content="#541B2B">
@@ -659,6 +670,19 @@ footer li a:hover{color:#fff}
   var MSG = 'Olá! Gostaria de orientação sobre um problema trabalhista.';
   var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MSG);
   document.querySelectorAll('.wa-link').forEach(function(a){ a.href = url; });
+
+  /* Google Ads - conversao de Contato no clique do WhatsApp (AW-17873334808) */
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (link && typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17873334808/ZNTrCM6o__ocEJjk1cpC',
+        'value': 1.0,
+        'currency': 'BRL',
+        'transport_type': 'beacon'
+      });
+    }
+  });
 
   // Ano do rodapé
   document.getElementById('ano').textContent = new Date().getFullYear();
