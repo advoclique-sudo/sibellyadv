@@ -665,24 +665,9 @@ footer li a:hover{color:#fff}
 
 <script>
 (function(){
-  // WhatsApp — número e mensagem pré-preenchida (único ponto de configuração)
-  var NUMERO = '5513991605813';
-  var MSG = 'Olá! Gostaria de orientação sobre um problema trabalhista.';
-  var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MSG);
-  document.querySelectorAll('.wa-link').forEach(function(a){ a.href = url; });
-
-  /* Google Ads - conversao de Contato no clique do WhatsApp (AW-17873334808) */
-  document.addEventListener('click', function(e){
-    var link = e.target.closest('a[href*="wa.me"]');
-    if (link && typeof gtag === 'function') {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17873334808/ZNTrCM6o__ocEJjk1cpC',
-        'value': 1.0,
-        'currency': 'BRL',
-        'transport_type': 'beacon'
-      });
-    }
-  });
+  // WhatsApp — os botões apontam para a página-ponte, que dispara a conversão
+  // do Google Ads (AW-17873334808/ZNTrCM6o__ocEJjk1cpC) e redireciona para o WhatsApp.
+  document.querySelectorAll('.wa-link').forEach(function(a){ a.href = '/whatsapp.html'; });
 
   // Ano do rodapé
   document.getElementById('ano').textContent = new Date().getFullYear();
